@@ -1,0 +1,667 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap");
+
+:root {
+  --color-1: #fff8dc;
+  --text-color: #503530;
+  --accent-color: #c77f20;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 12pt;
+  font-family: Poppins, Segoe UI, Tahoma, sans-serif;
+  background-color: #fff8dc;
+  scroll-behavior: smooth;
+}
+
+nav {
+  height: 60px;
+  background-color: var(--color-1);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.links-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+nav a {
+  height: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  position: relative;
+  overflow: hidden;
+  font-size: 15pt; /* Increased by 25% from 12pt */
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  background-color: var(--accent-color);
+}
+
+nav .home-link {
+  margin-right: auto;
+}
+
+nav svg {
+  fill: var(--text-color);
+}
+
+#sidebar-active {
+  display: none;
+}
+
+.open-sidebar-button,
+.close-sidebar-button {
+  display: none;
+}
+
+@media (max-width: 450px) {
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: transparent;
+  }
+
+  .links-container {
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 10;
+    width: 300px;
+    background-color: var(--color-1);
+    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+    transition: 0.75s ease-out;
+    padding-top: 60px;
+  }
+
+  nav a {
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    padding: 20px 30px;
+    justify-content: flex-start;
+    font-size: 13.75pt; /* Increased by 25% from 11pt for mobile */
+  }
+
+  .open-sidebar-button,
+  .close-sidebar-button {
+    padding: 20px;
+    display: block;
+  }
+
+  .open-sidebar-button {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    z-index: 101;
+    background-color: rgba(255, 248, 220, 0.6);
+    border-radius: 5px;
+    padding: 8px;
+  }
+
+  #sidebar-active:checked ~ .links-container {
+    right: 0;
+  }
+
+  #sidebar-active:checked ~ #overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+  }
+
+  .container {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .banner-section {
+    margin-top: 0;
+  }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.banner-section,
+.chal-section {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 5 / 1;
+  animation: scaleIn 1s ease-out;
+}
+
+.chal-section button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  background-color: #c4bfbe;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.chal-section button:hover {
+  background-color: #b87149;
+  transform: translateX(-50%) scale(1.1);
+}
+
+.achar-section {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1000 / 441;
+  margin-top: 0px;
+}
+
+.nolen-gur-section,
+.nolen-gur-section1,
+.doshokorma-section {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 5 / 1;
+  margin-bottom: 2px;
+  border-radius: 5px;
+}
+
+.nolen-gur-section {
+  height: 50vh;
+}
+
+.nolen-gur-section1 {
+  height: 80vh;
+}
+
+.aamsotto-section,
+.chanachur-section,
+.chatni-section,
+.kasundi-section {
+  flex: 1 1 calc(50% - 10px);
+  height: 100vh;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.achar-image,
+.background-image,
+.kasundi-image,
+.aamsotto-image,
+.chanachur-image,
+.chatni-image,
+.nolen-gur-image,
+.nolen-gur-image1,
+.doshokorma-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.nolen-gur-image1 {
+  margin-bottom: 0px;
+}
+
+button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  background-color:#c4bfbe;
+  color: whitesmoke;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: #b87149;
+  transform: translateX(-50%) scale(1.1);
+}
+
+/* Added the same button behavior for doshokorma section */
+.doshokorma-section button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  background-color: #c4bfbe;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.doshokorma-section button:hover {
+  background-color: #b87149;
+  transform: translateX(-50%) scale(1.1);
+}
+
+.home-link {
+  color: #503530;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+/* Media queries for responsiveness */
+
+@media (max-width: 1200px) {
+  .banner-section,
+  .chal-section,
+  .achar-section,
+  .nolen-gur-section,
+  .nolen-gur-section1,
+  .doshokorma-section {
+    height: 28vh;  
+  }
+
+  .aamsotto-section,
+  .chanachur-section,
+  .chatni-section,
+  .kasundi-section {
+    height: 45vh;
+  }
+}
+
+@media (max-width: 992px) {
+  .banner-section,
+  .chal-section,
+  .achar-section,
+  .nolen-gur-section {
+    height: 26vh; 
+  }
+
+  .nolen-gur-section1,
+  .doshokorma-section {
+    height: 30vh;  /* Increased from 30vh */
+  }
+
+  .aamsotto-section,
+  .chanachur-section,
+  .chatni-section,
+  .kasundi-section {
+    height: 40vh;
+  }
+}
+
+@media (max-width: 576px) {
+  .banner-section,
+  .chal-section,
+  .achar-section,
+  .doshokorma-section {
+    height: auto;
+  }
+
+  .nolen-gur-section{
+    height: 15vh;
+  }
+
+  .nolen-gur-section1 {
+    height: 20vh;
+  }
+
+  .aamsotto-section,
+  .chanachur-section,
+  .chatni-section,
+  .kasundi-section {
+    height: 20vh;
+  }
+
+  .doshokorma-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Ensures that the image maintains its aspect ratio */
+  }
+  .doshokorma-section button {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    border: none;
+    padding: 5px 10px; /* Reduced padding for mobile */
+    border-radius: 5px;
+    font-size: 0.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .chal-section button {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+
+  button {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    bottom: 5px;
+  }
+}
+
+/* Footer Styling */
+footer {
+  background-color: #fff8dc; /* Lighter than the page background for better visibility */
+  border-top: 2px solid #fff8dc; /* Subtle border to separate footer from content */
+  padding: 20px 10px;
+  text-align: center;
+  margin-top: 30px; /* Ensures spacing from the content above */
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.footer-content p {
+  color: 503530;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.footer-content .social-icons {
+  margin: 10px 0;
+}
+
+.footer-content .social-icons a {
+  margin: 0 10px;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+}
+
+.footer-content .social-icons img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.footer-content .social-icons img:hover {
+  transform: scale(1.2);
+}
+
+.footer-content a {
+  color: var(--footer-link);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-content a:hover {
+  color: #c79c3f;
+}
+
+/* Footer Button */
+.footer-button {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #503530;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.footer-button:hover {
+  background-color: #614540;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries for Footer */
+@media (max-width: 576px) {
+  .footer-content p {
+    font-size: 0.8rem;
+  }
+
+  .footer-content .social-icons img {
+    width: 24px;
+  }
+
+  .footer-button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+.available-at-section {
+  text-align: center;
+  margin: 10px 4px;
+  background: linear-gradient(145deg, #fff8dc, #dbdad2);
+  box-shadow: 4px 4px 8px #cccccc, -4px -4px 8px #ffffff;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.available-at-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #503530;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.available-logo {
+  max-width: 100px;
+  height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  animation: slideInRight 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.available-logo:hover {
+  transform: scale(1.1);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.available-logo:nth-child(2) { animation-delay: 0.1s; }
+.available-logo:nth-child(3) { animation-delay: 0.2s; }
+.available-logo:nth-child(4) { animation-delay: 0.3s; }
+.available-logo:nth-child(5) { animation-delay: 0.4s; }
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .available-at-section h2 {
+    font-size: 20px;
+  }
+
+  .logo-container {
+    gap: 15px;
+  }
+
+  .available-logo {
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .available-at-section h2 {
+    font-size: 18px;
+  }
+
+  .logo-container {
+    gap: 10px;
+  }
+
+  .available-logo {
+    max-width: 60px;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Apply animations to elements */
+.product {
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.product:nth-child(2) { animation-delay: 0.2s; }
+.product:nth-child(3) { animation-delay: 0.4s; }
+.product:nth-child(4) { animation-delay: 0.6s; }
+
+/* Enhanced hover effects */
+.product {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.banner img {
+    transition: transform 0.5s ease;
+}
+
+.banner:hover img {
+    transform: scale(1.02);
+}
+
+/* Loading animation */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+.check-availability {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #503530;
+  color: #fff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 auto;
+}
+
+.check-availability:hover {
+  background: #614540;
+}
